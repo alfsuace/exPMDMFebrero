@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/albumListFragment">
+
+    <fragment
+        android:id="@+id/albumListFragment"
+        android:name="com.alfsuace.expmdmfebrero.presentation.AlbumListFragment"
+        android:label="AlbumListFragment"
+        tools:layout="@layout/fragment_album_list"
+        >
+        <action
+            android:id="@+id/action_albumListFragment_to_stickerListFragment"
+            app:destination="@id/stickerListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stickerListFragment"
+        android:name="com.alfsuace.expmdmfebrero.presentation.StickerListFragment"
+        android:label="StickerListFragment" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+
 
 </navigation>

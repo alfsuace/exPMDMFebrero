@@ -12,7 +12,12 @@ constraintlayout = "2.2.0"
 
 navigationFragmentKtx = "2.8.7"
 safearg="2.8.7"
-kotlinPlugin="2.0.21"
+koinBom="4.0.0"
+koinAnnotations = "1.4.0"
+ksp="2.0.21-1.0.26"
+viewmodelScope="2.8.7"
+gson = "2.12.1"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -23,6 +28,15 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
+viewmodelscope={module="androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref="viewmodelScope"}
+
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+
+koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koinBom" }
+koin-android = { module = "io.insert-koin:koin-android" }
+koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koinAnnotations" }
+koin-ksp={module="io.insert-koin:koin-ksp-compiler", version.ref="koinAnnotations"}
+
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationFragmentKtx" }
 
@@ -30,6 +44,8 @@ androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx",
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 safe-args={id="androidx.navigation.safeargs.kotlin", version.ref="safearg"}
+ksp={id="com.google.devtools.ksp", version.ref="ksp"}
+
 
 
 
