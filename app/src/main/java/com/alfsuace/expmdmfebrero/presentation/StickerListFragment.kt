@@ -1,6 +1,7 @@
 package com.alfsuace.expmdmfebrero.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -71,7 +72,13 @@ class StickerListFragment():Fragment() {
     }
 
     private fun setUpObserver(){
-        val observer = Observer<StickerListViewModel.UiState>{
+        val observer = Observer<StickerListViewModel.UiState> {
+            if (it.loading) {
+                Log.d("@dev", "Cargando datos...")
+            }
+            if (it.error) {
+                Log.d("@dev", "Ocurrió un error al cargar los datos")
+            }
             adapter.submitList(it.album?.mushrooms)
         }
         viewModel.uiState.observe(viewLifecycleOwner, observer)

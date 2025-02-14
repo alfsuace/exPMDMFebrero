@@ -1,6 +1,7 @@
 package com.alfsuace.expmdmfebrero.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -77,6 +78,12 @@ class AlbumListFragment : Fragment(R.layout.fragment_album_list) {
 
     private fun setUpObserver(){
         val observer = Observer<AlbumListViewModel.UiState>{
+            if (it.loading) {
+                Log.d("@dev", "Cargando datos...")
+            }
+            if (it.error) {
+                Log.d("@dev", "Ocurrió un error al cargar los datos")
+            }
             adapter.submitList(it.albums)
         }
         viewModel.uiState.observe(viewLifecycleOwner, observer)
