@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.alfsuace.expmdmfebrero.domain.Album
 import com.alfsuace.expmdmfebrero.domain.GetAlbumByIdUseCase
+import org.koin.android.annotation.KoinViewModel
 
+@KoinViewModel
 class StickerListViewModel(
     private val getAlbumByIdUseCase: GetAlbumByIdUseCase
 ): ViewModel() {

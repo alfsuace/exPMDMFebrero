@@ -10,12 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.alfsuace.expmdmfebrero.R
-import com.alfsuace.expmdmfebrero.data.AlbumDataRepository
-import com.alfsuace.expmdmfebrero.data.local.AlbumLocalDataRepository
 import com.alfsuace.expmdmfebrero.databinding.FragmentDetailAlbumBinding
-import com.alfsuace.expmdmfebrero.domain.GetAlbumByIdUseCase
 import com.alfsuace.expmdmfebrero.presentation.adaptersticker.MushroomAdapter
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class StickerListFragment():Fragment() {
     private var _binding: FragmentDetailAlbumBinding? = null
@@ -23,15 +20,7 @@ class StickerListFragment():Fragment() {
 
     private val args: StickerListFragmentArgs by navArgs()
 
-    private val viewModel: StickerListViewModel by lazy {
-        StickerListViewModel(
-            GetAlbumByIdUseCase(
-                AlbumDataRepository(
-                    AlbumLocalDataRepository(requireContext())
-                )
-            )
-        )
-    }
+    private val viewModel: StickerListViewModel by viewModel()
 
     private lateinit var adapter: MushroomAdapter
 

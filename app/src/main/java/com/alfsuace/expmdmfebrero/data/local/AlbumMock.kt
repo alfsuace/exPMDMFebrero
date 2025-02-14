@@ -2,7 +2,9 @@ package com.alfsuace.expmdmfebrero.data.local
 
 import com.alfsuace.expmdmfebrero.domain.Album
 import com.alfsuace.expmdmfebrero.domain.Mushroom
+import org.koin.core.annotation.Single
 
+@Single
 class AlbumMock {
     val mushrooms = listOf(
         Mushroom("1", "Amanita Muscaria", "https://example.com/amanita.jpg"),

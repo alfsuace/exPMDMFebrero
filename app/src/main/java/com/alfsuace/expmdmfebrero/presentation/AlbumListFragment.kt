@@ -10,27 +10,16 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alfsuace.expmdmfebrero.R
-import com.alfsuace.expmdmfebrero.data.AlbumDataRepository
-import com.alfsuace.expmdmfebrero.data.local.AlbumLocalDataRepository
-import com.alfsuace.expmdmfebrero.data.local.AlbumMock
 import com.alfsuace.expmdmfebrero.databinding.FragmentAlbumListBinding
-import com.alfsuace.expmdmfebrero.domain.GetAlbumsUseCase
 import com.alfsuace.expmdmfebrero.presentation.adapter.AlbumAdapter
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AlbumListFragment : Fragment(R.layout.fragment_album_list) {
 
     private var _binding: FragmentAlbumListBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: AlbumListViewModel by lazy {
-        AlbumListViewModel(
-            GetAlbumsUseCase(
-                AlbumDataRepository(
-                    AlbumLocalDataRepository(requireContext())
-                )
-            )
-        )
-    }
+    private val viewModel: AlbumListViewModel by viewModel()
 
     private lateinit var adapter: AlbumAdapter
 

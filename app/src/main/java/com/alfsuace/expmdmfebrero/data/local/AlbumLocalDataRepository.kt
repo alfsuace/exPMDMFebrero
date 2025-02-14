@@ -3,27 +3,18 @@ package com.alfsuace.expmdmfebrero.data.local
 import android.content.Context
 import com.google.gson.Gson
 import com.alfsuace.expmdmfebrero.domain.Album
+import org.koin.core.annotation.Single
 
+@Single
 class AlbumLocalDataRepository(private val context: Context) {
     private val gson = Gson()
     private val mock = AlbumMock()
     private val prefs = context.getSharedPreferences("album_prefs", Context.MODE_PRIVATE)
 
-
-    fun saveAlbum(album: Album) {
-        val albumJson = gson.toJson(album)
-        prefs.edit().putString(album.id, albumJson).apply()
-    }
-
     fun getAlbumById(id: String): Album? {
         val albumJson = prefs.getString(id, null)
         return gson.fromJson(albumJson, Album::class.java)
     }
-
-    fun deleteAlbum(id: String) {
-        prefs.edit().remove(id).apply()
-    }
-
 
     fun saveAlbums(albums: List<Album>) {
         val editor = prefs.edit()

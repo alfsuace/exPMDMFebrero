@@ -8,7 +8,9 @@ import com.alfsuace.expmdmfebrero.domain.Album
 import com.alfsuace.expmdmfebrero.domain.GetAlbumsUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.koin.android.annotation.KoinViewModel
 
+@KoinViewModel
 class AlbumListViewModel(private val getAlbumsUseCase: GetAlbumsUseCase) : ViewModel() {
 
     private val _uiState = MutableLiveData<UiState>()
