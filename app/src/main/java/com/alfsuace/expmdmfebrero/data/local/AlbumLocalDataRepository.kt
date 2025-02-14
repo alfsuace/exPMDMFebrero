@@ -6,9 +6,7 @@ import com.alfsuace.expmdmfebrero.domain.Album
 import org.koin.core.annotation.Single
 
 @Single
-class AlbumLocalDataRepository(private val context: Context) {
-    private val gson = Gson()
-    private val mock = AlbumMock()
+class AlbumLocalDataRepository(private val context: Context, private val gson: Gson, private val mock: AlbumMock) {
     private val prefs = context.getSharedPreferences("album_prefs", Context.MODE_PRIVATE)
 
     fun getAlbumById(id: String): Album? {
