@@ -51,7 +51,7 @@ class AlbumListFragment : Fragment(R.layout.fragment_album_list) {
         setUpRecyclerView()
         setUpObserver()
         viewModel.loadAlbums()
-        binding.toolbar.toolbar.setOnMenuItemClickListener { item ->
+        binding.toolbarAlbum.toolbar.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.action_bookmark -> {
                     viewModel.toggleShowFavorites()

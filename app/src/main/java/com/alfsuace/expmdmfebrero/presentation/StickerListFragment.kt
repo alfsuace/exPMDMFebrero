@@ -54,8 +54,7 @@ class StickerListFragment():Fragment() {
     }
 
     private fun setUpToolBar() {
-
-        binding.toolbar.toolbar.apply {
+        binding.toolbarDetail.toolbar.apply {
             setNavigationOnClickListener {
                 findNavController().navigateUp()
             }

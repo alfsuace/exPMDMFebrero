@@ -6,14 +6,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <include
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar_album"
         layout="@layout/main_toolbar"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/album_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_album"
         app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/view_album_item"/>
 
